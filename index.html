@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<head>
+  <title>CATS COMMUNITY</title>
+  <link rel="icon" href="20250406_215203.png" type="image/png">
+</head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<style>
+  /* Reset & basics */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+  body {
+    background: #121212;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+  }
+  /* Navbar */
+  .navbar {
+    background: rgba(10,10,10,0.7);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 6px 14px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+  }
+  .navbar a:hover,
+  .navbar a.active {
+    background: #3a8ee6;
+    color: black;
+  }
+
+  /* Logo */
+  .logo-container {
+    text-align: center;
+    margin: 40px 0 20px;
+  }
+.logo-container img {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+}
+
+.logo-text {
+  margin-top: 15px;
+  font-size: 2.8rem;          /* same size as Why Choose Our Panels? */
+  font-weight: 900;           /* heavy bold */
+  text-align: center;         /* center the text */
+  letter-spacing: 2px;
+  user-select: none;
+  text-shadow: 0 0 6px #3a8ee6; /* glowing blue shadow */
+  font-family: 'Arial Black', Arial, sans-serif; /* keep your font */
+}
+
+.logo-text .white {
+  color: white;
+}
+.logo-text .blue {
+  color: #3a8ee6;
+}
+
+
+  /* Sections container */
+  .container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px 80px;
+  }
+  .glass {
+background: rgba(30,30,30,0.5);
+    border-radius: 15px;
+    box-shadow: 0 0 40px rgba(58,142,230,0.2);
+    padding: 30px 25px;
+  }
+ .servicesa {
+background: rgba(30,30,30,0.5);
+    border-radius: 15px;
+    box-shadow: 0 0 40px rgba(58,142,230,0.2);
+    padding: 30px 25px;
+  }
+  /* Why Us Section */
+  #why-us {
+    margin-bottom: 50px;
+  }
+  #why-us h2 {
+    font-size: 2.8rem;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 25px;
+    color: #3a8ee6;
+    text-shadow: 0 0 6px #3a8ee6;
+  }
+    #why-us1 {
+    margin-bottom: 50px;
+  }
+
+   #why-us1 h2 {
+    font-size: 2.8rem;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 25px;
+    color: #3a8ee6;
+    text-shadow: 0 0 6px #3a8ee6;
+  }
+  .why-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .reason-btn {
+    border: 2px solid #3a8ee6;
+    background: transparent;
+    color: white;
+    font-size: 1.2rem;
+    padding: 14px 32px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    user-select: none;
+    min-width: 180px;
+    text-align: center;
+  }
+  .reason-btn:hover {
+    background-color: #3a8ee6;
+    color: black;
+  }
+
+  /* Panels */
+  #panels {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 26px;
+  }
+  .panel-card {
+    background: rgba(40,40,40,0.75);
+    border-radius: 18px;
+    box-shadow: 0 0 20px #3a8ee6aa;
+    padding: 28px 25px 36px;
+    width: 320px;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    user-select: none;
+  }
+  .panel-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 40px #3a8ee6ff;
+  }
+  .panel-title {
+    font-weight: 800;
+    font-size: 1.7rem;
+    margin-bottom: 14px;
+    text-align: center;
+    color: #3a8ee6;
+    text-shadow: 0 0 5px #3a8ee6cc;
+  }
+  .panel-price {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+    color: white;
+  }
+  .panel-desc {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-bottom: 18px;
+    text-align: center;
+    color: #ddd;
+    min-height: 68px;
+  }
+
+  /* Smooth blue line background following cursor */
+  #cursor-line {
+    position: fixed;
+    pointer-events: none;
+    top: 0; left: 0;
+    width: 300px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #3a8ee6, transparent);
+    border-radius: 2px;
+    opacity: 0.4;
+    transform-origin: left center;
+    transition: transform 0.1s ease-out;
+    z-index: 5;
+  }
+  .panelks{
+    font-size: 2.8rem;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 25px;
+    
+    color: #3a8ee6;
+    text-shadow: 0 0 6px #3a8ee6;
+  }
+  /* Footer */
+  footer {
+    background: #1c1c1c;
+    color: #888;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    user-select: none;
+  }
+  footer a {
+    color: #3a8ee6;
+    text-decoration: none;
+  }
+  footer a:hover {
+    text-decoration: underline;
+  }
+
+  /* Responsive */
+  @media (max-width: 720px) {
+    #panels {
+      flex-direction: column;
+      align-items: center;
+    }
+    .panel-card {
+      width: 90%;
+    }
+    .why-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+    .reason-btn {
+      min-width: 90%;
+      max-width: 300px;
+    }
+   
+  }
+</style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar glass">
+    <a href="index.html" class="active">Home</a>
+    <a href="#panels">Our Services</a>
+    <a href="#privacy">Privacy</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="terms.html">Terms</a>
+  </nav>
+
+  <!-- Logo -->
+  <div class="logo-container">
+    <div class="logo-text">
+      <span class="white">CATS</span> <span class="blue">COMMUNITY</span>
+    </div>
+    <img src="20250406_215203.png" alt="Cats Community Logo" />
+    
+  </div>
+
+  <main class="container">
+
+    <!-- Why Choose Our Panels -->
+    <section id="why-us" class="glass">
+      <h2>Why Choose Our Panels?</h2>
+      <div class="why-buttons">
+        <button class="reason-btn">Safe & Undetected</button>
+        <button class="reason-btn">Regular Updates</button>
+        <button class="reason-btn">Easy to Use</button>
+        <button class="reason-btn">Premium Support</button>
+        <button class="reason-btn">Affordable Prices</button>
+      </div>
+    </section>
+
+<h2 class="panelks">Our Services</h2>
+
+    <!-- Panels -->
+    <section id="panels" class="servicesa" id="why-us1">
+      
+
+      
+      <div class="panel-card" onclick="goToPanel('cheat-bypass.html')">
+        <div class="panel-title">Panel Bypass</div>
+        <div class="panel-price">Available</div>
+        <div class="panel-desc">Bypass anti-cheat protections safely with this lightweight panel.</div>
+      </div>
+
+      <div class="panel-card" onclick="goToPanel('cheat-external.html')">
+        <div class="panel-title">Panel External</div>
+        <div class="panel-price">Available</div>
+        <div class="panel-desc">External hacks featuring smooth aimbot, ESP, and overlay support.</div>
+      </div>
+
+      <div class="panel-card" onclick="goToPanel('cheat-internal.html')">
+        <div class="panel-title">Panel Internal</div>
+        <div class="panel-price">Available</div>
+        <div class="panel-desc">Internal memory-based cheats with advanced features and radar hack.</div>
+      </div>
+
+      <div class="panel-card" onclick="goToPanel('cheat-superem.html')">
+        <div class="panel-title">Panel Supreme</div>
+        <div class="panel-price">Available</div>
+        <div class="panel-desc">Our premium panel with all cheats and anti-detection technology.</div>
+      </div>
+      <div class="panel-card" onclick="goToPanel('cheat-silent.html')">
+        <div class="panel-title">Silent Aim </div>
+        <div class="panel-price">Available</div>
+        <div class="panel-desc">Shoot and get headshots without aiming at the enemy</div>
+      </div>
+    
+
+ 
+    </section>
+
+    <!-- Privacy Section -->
+    <section id="panels" class="servicesa" id="why-us1">
+      <h2 style="text-align:center; color:#3a8ee6; margin-bottom: 25px;">Privacy Policy</h2>
+      <p class="privacytext">
+        We respect your privacy. Your data will never be shared or sold. Transactions and communication are secured.
+      </p>
+      <p>
+        We Do Not Leak Our Trading, Everything is private and secured with us
+      </p>
+    </section>
+
+  </main>
+
+  <!-- Cursor-following blue line -->
+  <div id="cursor-line"></div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Cats Community. All rights reserved. | <a href="terms.html">Terms & Conditions</a>
+  </footer>
+
+  <script>
+    // Navigate to panel detail page
+    function goToPanel(page) {
+      window.location.href = page;
+    }
+
+    // Smooth blue line that follows cursor horizontally
+    const cursorLine = document.getElementById('cursor-line');
+    window.addEventListener('mousemove', (e) => {
+      const x = e.clientX;
+      const y = e.clientY;
+      cursorLine.style.top = y + 10 + 'px';
+      cursorLine.style.left = x - 150 + 'px'; // center line on cursor horizontally
+    });
+    // Smooth scrolling for internal page anchors
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const targetID = this.getAttribute('href').substring(1);
+    const targetElement = document.getElementById(targetID);
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop - 70, // adjust for sticky navbar height
+        behavior: 'smooth'
+      });
+    }
+  });
+});
+
+  </script>
+
+</body>
+</html>
