@@ -10,7 +10,7 @@
       return;
     }
 
-    const webhookUrl = "https://discord.com/api/webhooks/1377512452484366486/bs0ApYQAgZFQsu1pDV6PX3BcOqswEfGZzWfQJY6de8N6qmwnmujl0Xff4KjJi-ueg7Qy"; // <-- replace this with your actual webhook
+    const webhookUrl = "https://discord.com/api/webhooks/1382479692401213480/Fdzn3AlM7rgJjeBexo4CvZeLlFacsnB-rVbC499i8XovfPUe2K4u9Idto2Ee3IyHmSor"; // <-- replace this with your actual webhook
 
     const payload = {
       content: `📬 **New Contact Submission**\n\n👤 **Name:** ${name}\n📧 **Email:** ${email}\n💬 **Message:**\n${message}`
